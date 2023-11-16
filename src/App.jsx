@@ -1,9 +1,12 @@
 import { GitHub } from '@mui/icons-material'
 import { useState } from 'react'
 import CodeCanvas from './components/CodeCanvas'
+import InputBuffer from './components/Buffer.jsx'
 
 function App() {
-	const [text, setText] = useState("https://qr.opl.io/")
+	const [text, setText] = useState("https://qr.opl.io/");
+
+	const [bufferedText, setBufferedText] = useState("https://qr.opl.io/");
 
 	return (
 		<>
@@ -16,7 +19,9 @@ function App() {
 				onChange={e => setText(e.target.value)}
 			/>
 
-			<CodeCanvas className=' h-auto w-[256px] max-w-full' value={text.trim()} />
+			<InputBuffer value={text.trim()} onComplete={setBufferedText}>
+				<CodeCanvas className=' h-auto w-[256px] max-w-full' value={bufferedText.trim()} />
+			</InputBuffer>
 
 			<p>
 				Check out the <a href='#' target="_blank">source code <GitHub className='w-2' /></a>
