@@ -24,7 +24,7 @@ function App() {
 			</InputBuffer>
 
 			<p>
-				Check out the <a href='#' target="_blank">source code <GitHub className='w-2' /></a>
+				Check out the <a href='https://github.com/CalebBabin/qr-code-generator-pwa' target="_blank">source code <GitHub className='w-2' /></a>
 			</p>
 		</>
 	)
