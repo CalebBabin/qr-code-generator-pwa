@@ -9,7 +9,7 @@ function App() {
 		<>
 			<h1 className='text-xl lg:text-4xl'>QR Code Generator</h1>
 			<input
-				className='border rounded-md px-2 py-1 max-w-xs'
+				className='border rounded-md px-2 py-1 max-w-[18rem] w-11/12'
 				placeholder='https://qr.opl.io'
 				type="text"
 				value={text}
