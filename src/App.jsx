@@ -1,10 +1,11 @@
-import { GitHub } from '@mui/icons-material'
+import { Download, GitHub } from '@mui/icons-material'
 import { useState } from 'react'
 import CodeCanvas from './components/CodeCanvas'
 import InputBuffer from './components/Buffer.jsx'
 
 function App() {
 	const [text, setText] = useState("https://qr.opl.io/");
+	const [download, setDownload] = useState(0);
 
 	const [bufferedText, setBufferedText] = useState("https://qr.opl.io/");
 
@@ -20,8 +21,14 @@ function App() {
 			/>
 
 			<InputBuffer value={text.trim()} onComplete={setBufferedText}>
-				<CodeCanvas className=' h-auto w-[256px] max-w-full' value={bufferedText.trim()} />
+				<CodeCanvas className='h-auto w-[256px] max-w-full' value={bufferedText.trim()} download={download} />
 			</InputBuffer>
+
+			<button
+				onClick={() => { setDownload(Date.now()) }}
+				className='dark:border-white light:border-black border rounded-md px-1 py-.5 text-xs'>
+				download <Download style={{ width: '0.75em' }} />
+			</button>
 
 			<p>
 				Check out the <a href='https://github.com/CalebBabin/qr-code-generator-pwa' target="_blank">source code <GitHub className='w-2' /></a>
