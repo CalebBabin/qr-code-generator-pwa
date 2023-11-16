@@ -1,32 +1,25 @@
+import { GitHub } from '@mui/icons-material'
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import CodeCanvas from './components/CodeCanvas'
 
 function App() {
-	const [count, setCount] = useState(0)
+	const [text, setText] = useState("https://qr.opl.io/")
 
 	return (
 		<>
-			<div>
-				<a href="https://vitejs.dev" target="_blank">
-					<img src={viteLogo} className="logo" alt="Vite logo" />
-				</a>
-				<a href="https://react.dev" target="_blank">
-					<img src={reactLogo} className="logo react" alt="React logo" />
-				</a>
-			</div>
-			<h1>Vite + React</h1>
-			<div className="card">
-				<button onClick={() => setCount((count) => count + 1)}>
-					count is {count}
-				</button>
-				<p>
-					Edit <code>src/App.jsx</code> and save to test HMR
-				</p>
-			</div>
-			<p className="read-the-docs">
-				Click on the Vite and React logos to learn more
+			<h1 className='text-xl lg:text-4xl'>QR Code Generator</h1>
+			<input
+				className='border rounded-md px-2 py-1 max-w-xs'
+				placeholder='https://qr.opl.io'
+				type="text"
+				value={text}
+				onChange={e => setText(e.target.value)}
+			/>
+
+			<CodeCanvas className=' h-auto w-[256px] max-w-full' value={text.trim()} />
+
+			<p>
+				Check out the <a href='#' target="_blank">source code <GitHub className='w-2' /></a>
 			</p>
 		</>
 	)
