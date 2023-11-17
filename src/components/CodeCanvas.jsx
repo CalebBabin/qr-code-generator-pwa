@@ -2,7 +2,7 @@ import QRCode from "qrcode";
 import { useEffect, useRef, useState } from "react";
 
 
-export default function CodeCanvas({ value, className, download }) {
+export default function CodeCanvas({ value, className, download, options = {} }) {
 	const canvasRef = useRef(null);
 
 	useEffect(() => {
@@ -29,10 +29,11 @@ export default function CodeCanvas({ value, className, download }) {
 		if (!canvasRef?.current || !value) return;
 		QRCode.toCanvas(canvasRef.current, value, {
 			scale: 8,
+			...options
 		}, () => {
 			canvasRef.current.removeAttribute('style');
 		});
-	}, [value, canvasRef.current]);
+	}, [value, canvasRef.current, options]);
 
 	return <canvas className={className} ref={canvasRef} />
 }
